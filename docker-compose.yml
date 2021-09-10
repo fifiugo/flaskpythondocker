@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  api:
+    build: ./api
+    command: python app.py
+    env_file:
+      - '.env'
+    ports:
+      - '5000:5000'
+    volumes:
+     - ./api:/app
+    networks:
+      - back-tier
+    depends_on:
+      - db
+
+  db:
+    image: postgres:9.4
+    #volumes:
+    #  - "db-data:/var/lib/postgresql/data"
+    networks:
+      - back-tier
+    # Updates:
+    #   Feb 2020: Check the .env file for more details
+    env_file:
+      - '.env'
+    networks:
+      - back-tier
+
+volumes:
+  db-data:
+
+networks:
+  back-tier:     

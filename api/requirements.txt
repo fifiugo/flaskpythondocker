@@ -1,0 +1,12 @@
+Flask
+Flask-RESTful
+Flask-JWT
+Flask-SQLAlchemy
+# Updates:
+#   Nov 2019: Lock version to avoid potential future versioning issues
+Redis==3.3.11
+
+# Updates:
+#   Nov 2019: Lock version to avoid potential future versioning issues
+gunicorn==20.0.4
+psycopg2
